@@ -13,7 +13,9 @@ import javax.persistence.*;
 @Entity
 @Table(name = "carro")
 public class Carro   extends PanacheEntityBase {
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String placa;
 
     @Column(name = "ano")
@@ -24,6 +26,9 @@ public class Carro   extends PanacheEntityBase {
 
     @Column(name = "marca")
     private String marca;
+
+    @Enumerated(EnumType.STRING)
+    private Status status;
 
 
     public String getPlaca() {
